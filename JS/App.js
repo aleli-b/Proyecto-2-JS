@@ -8,7 +8,9 @@ const datos = [
     developer: "CD PROJEKT RED",
     editor: "CD PROJEKT RED",
     tags: "Ciberpunk",
-    multiplayer: false
+    multiplayer: false,
+    background: 'https://static.bandainamcoent.eu/high/cyberpunk/cyberpunk-2077/00-page-setup/cp2077_game-thumbnail.jpg',
+    trailer: 'https://www.youtube.com/watch?v=Q_v3ttvCVfA'
   },
   {
     id: 2,
@@ -19,7 +21,9 @@ const datos = [
     developer: "EA Canada & EA Romania",
     editor: "Electronic Arts",
     tags: "Fútbol",
-    multiplayer: true
+    multiplayer: true,
+    background: 'https://i.blogs.es/ca1b1c/fifa-22-1/1366_2000.jpeg',
+    trailer: 'https://www.youtube.com/watch?v=o1igaMv46SY'
   },
   {
     id: 3,
@@ -30,7 +34,9 @@ const datos = [
     developer: "Visual Concepts",
     editor: "2K",
     tags: "Deportes, Baloncesto, Simulación, Realistas",
-    multiplayer: true
+    multiplayer: true,
+    background: 'https://assets.2k.com/1a6ngf98576c/6Oxh4KWRKnoG8NCiYBUjtB/5b699b4b4a2e1de02687d88963aa2548/2k22_Meta-image_1.jpg',
+    trailer: 'https://www.youtube.com/watch?v=OcUzwnA569M'
   },
   {
     id: 4,
@@ -41,7 +47,10 @@ const datos = [
     developer: "Insomniac Games, Nixxes Software",
     editor: "PlayStation PC LLC",
     tags: "Super héroes, Acción, Mundo abierto, Un jugador",
-    multiplayer: false
+    multiplayer: false,
+    background: 'https://gmedia.playstation.com/is/image/SIEPDC/marvels-spider-man-e3-2018-screen-03-ps4-us-11jun18?$1600px$',
+    trailer: 'https://www.youtube.com/watch?v=q4GdJVvdxss'
+    
   },
   {
     id: 5,
@@ -52,7 +61,9 @@ const datos = [
     developer: "Rockstar Games",
     editor: "Rockstar Games",
     tags: "Mundo abierto, Buena trama, Aventura, Vaqueros",
-    multiplayer: true
+    multiplayer: true,
+    background: 'https://i.blogs.es/169695/red0/1366_2000.jpg',
+    trailer: 'https://www.youtube.com/watch?v=MyaYlbizpvs'
   },
   {
     id: 6,
@@ -63,7 +74,9 @@ const datos = [
     developer: "FromSoftware Inc.",
     editor: "FromSoftware Inc. Bandai Namco Entertainment",
     tags: "Tipo «Dark Souls», Relajantes, Fantasía oscura",
-    multiplayer: false
+    multiplayer: false,
+    background: 'https://as01.epimg.net/meristation/imagenes/2022/10/04/noticias/1664892278_367338_1664892630_noticia_normal.jpg',
+    trailer: 'https://www.youtube.com/watch?v=CptaXqVY6-E'
   },
   {
     id: 7,

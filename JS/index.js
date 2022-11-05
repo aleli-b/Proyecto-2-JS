@@ -2,11 +2,16 @@
 // const btnAnterior = document.getElementById('btnAnterior');
 // const btnSiguiente = document.getElementById('btnSiguiente');
 const juegos = JSON.parse(localStorage.getItem('juegos')) || [];
+<<<<<<< HEAD
 const searchInput = document.getElementById('searchBar');
 const searchButton= document.getElementById('searchButton');
 
 
 
+=======
+let current_page = 1;
+let rows = 6;
+>>>>>>> development
 
 // btnSiguiente.addEventListener('click', () => {
 //     if(pagina <1000){
@@ -81,7 +86,7 @@ const renderCarousel = ()=>{
         //     console.log(descripcion)
         // }
         item.innerHTML = `
-            <img src="${juegosCortos[i].url}" class="d-block w-100 img-fluid" alt="${juegosCortos[i].title}">
+            <img src="${juegosCortos[i].url}" class="d-block w-100" alt="${juegosCortos[i].title}">
             <div class="carousel-caption d-none d-md-block">
             <h5>${juegosCortos[i].title}</h5>
             <p>${juegosCortos[i].description.slice(0, 90)}</p>
@@ -92,19 +97,42 @@ const renderCarousel = ()=>{
 
 renderCarousel()
 
-const renderGames = ()=>{
-    juegos.forEach(juego =>{
-        const contenedor = document.getElementById('contenedor');
+const search = () => {
+    const input = document.getElementById('searchBar').value;
+    const gameCard = document.querySelectorAll('#gameCard');
+    
+    for (let i = 0; i < gameCard.length; i++){
+        const title = gameCard[i].querySelector('h3').innerText
+        if (!title.toLowerCase().includes(input)){
+            gameCard[i].style.display = "none";
+        } else {
+            gameCard[i].style.display = ""
+        };
+    };
+};
+
+const renderGames = (items, rows_per_page, page) => {
+    page--;
+    let contenedor = document.getElementById('contenedor');
+    contenedor.innerHTML = "";
+    let start = rows_per_page * page;
+    let end = start + rows_per_page;
+    let paginated_items = items.slice(start, end);
+
+    for (let i = 0; i < paginated_items.length; i++){
+        
         const tarjeta = document.createElement('div');
+        tarjeta.id = "gameCard"
         tarjeta.innerHTML = `
-            <img class="img-fluid" src="${juego.url}">
-            <h3 class="title">${juego.title}</h3>        
+            <a href="#">
+            <img class="img-fluid" src="${paginated_items[i].url}">
+            <h3 class="title">${paginated_items[i].title}</h3>
+            <a>       
             `;
         contenedor.appendChild(tarjeta);
-    })
+    }
+    
 }
-
-renderGames()
 
 const modalRender1 = (() =>{
     juegos.slice(20, 26).forEach(juego =>{
@@ -128,7 +156,7 @@ const modalRender2 = (() =>{
         `;
         modalContainer.appendChild(modalCard);
     })
-})()
+}) ()
 
 const modalRender3 = (() =>{
     juegos.slice(14, 20).forEach(juego =>{
@@ -142,5 +170,35 @@ const modalRender3 = (() =>{
     })
 }) ()
 
+function setupPagination (items, rows_per_page) {
+    let page_count = Math.ceil(items.length / rows_per_page);
+    const pageNumbers = document.getElementById('pagination')
+    pageNumbers.innerHTML = "";
+    for (let i = 1; i < page_count + 1; i++){
+        let btn = paginationButton(i, items);
+        pageNumbers.appendChild(btn);
+    }
+    
+}
+
+function paginationButton (page, items) {
+    let button = document.createElement('button');
+    button.innerText = page;
+    if (current_page == page) button.classList.add('active');
+    
+    button.addEventListener('click', function(){
+        current_page = page;
+        renderGames(juegos, rows, current_page);
+        let current_btn = document.querySelector('.pageNumbers button.active');
+        current_btn.classList.remove('active');
+        button.classList.add('active');
+        gameDetail(juegos);
+    })
+    
+    return button;
+}
+
+renderGames(juegos, rows, current_page);
+setupPagination (juegos, rows);
 
 
