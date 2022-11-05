@@ -75,7 +75,7 @@
               </li>
               <div class="container-1">
                 <form class="d-flex" role="search">
-                  <input class="form-control me-2" id="searchBar" type="search" placeholder="Busca en el catalogo..." aria-label="Search">
+                  <input class="form-control me-2" id="searchBar" type="search" placeholder="Busca en el catalogo..." aria-label="Search" onkeyup="search()">
                   <button class="btn btn-outline-primary" id="searchButton" type="submit">Buscar</button>
                 </form>
               </div>
@@ -196,12 +196,14 @@
       
       <!--Api Render-->
       <div class="card-container">
-        <div class="contenedor" id="contenedor"></div>
+        <div class="container-fluid d-flex flex-wrap justify-content-center gap-4" id="contenedor"></div>
       </div>
-      <div class="paginacion">
+      <div class="pageNumbers" id="pagination"></div>
+      <!-- <div class="paginacion">
         <button id="btnAnterior">Anterior</button>
+        <div id="paginationNumbers"></div>
         <button id="btnSiguiente">Siguiente</button>
-      </div>
+      </div> -->
             <!-- <li class="page-item"><a class="page-link" href="#">Previous</a></li>
             <li class="page-item"><a class="page-link" href="#">1</a></li>
             <li class="page-item"><a class="page-link" href="#">2</a></li>
@@ -240,11 +242,10 @@
       </a>
   
       <ul class="nav col-md-4 justify-content-end">
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Inicio</a></li>
+        <li class="nav-item"><a href="./pages/contact.html" class="nav-link px-2 text-muted">Contacto</a></li>
+        <li class="nav-item"><a href="./pages/er404.html" class="nav-link px-2 text-muted">FAQs</a></li>
+        <li class="nav-item"><a href="./pages/aboutUs.html" class="nav-link px-2 text-muted">Sobre Nosotros</a></li>
       </ul>
     </footer>    
 

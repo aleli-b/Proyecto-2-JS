@@ -14,7 +14,7 @@
     <header class="container-fluid bg-dark ">
         <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
           <div class="container-fluid">
-            <a class="navbar-brand" href="#">SmokeGames</a>
+            <a class="navbar-brand" href="../index.html">SmokeGames</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -69,24 +69,18 @@
               </div>
               
               <div class="col col-sm-12 col-md-6 my-2">
-                <form>
-                  <fieldset>
-                    <legend class="fw-bold">Ingresar</legend>
-    
+                <form id="loginForm">                  
+                    <legend class="fw-bold">Ingresar</legend>   
                     <label for="email" class="fw-bold">Correo Electronico</label> <br />
-                    <input type="email" id="email" name="username" required autocomplete="additional-name" /> <br />
+                    <input type="email" id="inputEmail" name="username" required autocomplete="additional-name" /> <br/>
                     <br>
                     <label for="contraseña" class="fw-bold">Contraseña</label> <br>
-                    <input type="password" name="Contraseña" id="contraseña" required><br>
+                    <input type="password" name="Contraseña" id="inputPassword" required><br>
+                    <button class="btn btn-primary mt-3" type="submit" id="inputButton">Log In</button>
     
                     <!--Botones modales-->
     
                     <div>
-                      <div class="my-2">
-                        <button class="btn btn-primary">
-                          Enviar
-                        </button>
-                      </div>
                       <br>
                       <div>
                         <button type="button" class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#ModalRecuperar">
@@ -96,9 +90,9 @@
                     </div>
     
                     <div>
-                       <button type="button" class="btn btn-primary my-2 mx-2" data-bs-toggle="modal" data-bs-target="#ModalFaceBook">
+                       <button type="button" class="btn btn-primary my-2" data-bs-toggle="modal" data-bs-target="#ModalFaceBook">
                          <label for="">Iniciar sesión con </label>
-                         <img class="img-log px-2" src="/assets/img/icons/fb.png" alt="Logo de FaceBook">
+                         <img class="img-log px-2" src="/assets/img/icons/fb.png" alt="Logo de Facebook">
                        </button>
     
                     <button type="button" class="btn btn-light $enable-shadows boton my-2 mx-2" data-bs-toggle="modal"
@@ -110,9 +104,7 @@
                     
                       <div>
                         <a class="btn btn-primary text-white my-3" href="/Index.html"> Volver </a>
-                      </div>
-                    
-                  </fieldset>
+                      </div>                                      
                 </form>
               </div>
               
@@ -123,7 +115,7 @@
         <div class="espaciotop"></div>
       </main>
 
-    <footer class="d-flex flex-wrap justify-content-around align-items-center  py-3 my-4 border-top">
+      <footer class="d-flex flex-wrap justify-content-around align-items-center  py-3 my-4 border-top">
         <p class="col-md-4 mb-0 text-muted "> © 2022 Company, Inc</p>
     
         <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
@@ -131,11 +123,10 @@
         </a>
     
         <ul class="nav col-md-4 justify-content-end">
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Inicio</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contacto</a></li>
           <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Sobre Nosotros</a></li>
         </ul>
     </footer> 
 
@@ -242,7 +233,7 @@
     </div>
   </div>
 
-
+    <script src="../JS/login.js"></script>
     <script src="/JS/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
