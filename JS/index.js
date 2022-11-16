@@ -1,79 +1,13 @@
-// let pagina = 1;
-// const btnAnterior = document.getElementById('btnAnterior');
-// const btnSiguiente = document.getElementById('btnSiguiente');
 const juegos = JSON.parse(localStorage.getItem('juegos')) || [];
-<<<<<<< HEAD
+
 const searchInput = document.getElementById('searchBar');
 const searchButton= document.getElementById('searchButton');
 
-
-
-=======
 let current_page = 1;
 let rows = 6;
->>>>>>> development
-
-// btnSiguiente.addEventListener('click', () => {
-//     if(pagina <1000){
-//         pagina += 1;
-//         obtenerJuegos();
-
-//     }
-// })
-
-// btnAnterior.addEventListener('click', () => {
-//     if(pagina > 1){
-//         pagina -= 1;
-//         obtenerJuegos();
-
-//     }
-// })
-
-// const cargarJuegos = async() => {
-//     try {
-//         const respuesta = await fetch('https://my-json-server.typicode.com/qpmjcv/GamesApi/db');
-//         console.log(respuesta);
-//         if(respuesta.status === 200){
-//             const datos = await respuesta.json();
-
-//             let juegos = '';
-//             datos.juegos.forEach(juego => {
-//                 juegos += `
-//                     <div class="juego">
-//                         <img class="poster" src="${juego.url}">
-//                         <h3 class="titulo">${juego.title}</h3>
-//                     </div>    
-//                     `;
-                               
-//             });
-
-//             document.getElementById('contenedor').innerHTML = juegos;
-            
-//         } else if(respuesta.status === 401, 402, 403, 404, 405){
-//             console.log('El arreglo es demasiado largo');
-//         }
-
-//     } catch(error){
-//         console.log(error);
-//     }
-// }
-
-// cargarJuegos();
 
 const renderCarousel = ()=>{
     const juegosCortos = juegos.slice(0, 5)
-    // juegosCortos.forEach(juego =>{       
-    //     const contenedor = document.getElementById('carouselContainer');
-    //     const item = document.createElement('div');
-    //     item.classList = 'carousel-item';
-    //     item.innerHTML = `
-    //         <img src="${juego.url}" class="d-block w-100" alt="${juego.title}">
-    //         <div class="carousel-caption d-none d-md-block">
-    //         <h5>${juego.title}</h5>
-    //         <p>${juego.description}</p>
-    //     `
-    //     contenedor.appendChild(item)
-    // }) 
     for(let i = 0; i < juegosCortos.length; i++){
         const contenedor = document.getElementById('carouselContainer');
         const item = document.createElement('div');
@@ -81,10 +15,6 @@ const renderCarousel = ()=>{
         if(i === 0){
             item.classList = 'carousel-item active'
         };
-        // if(juegosCortos[i].description.length < 117){
-        //     let descripcion = juegosCortos[i].description.slice(0, 117);
-        //     console.log(descripcion)
-        // }
         item.innerHTML = `
             <img src="${juegosCortos[i].url}" class="d-block w-100" alt="${juegosCortos[i].title}">
             <div class="carousel-caption d-none d-md-block">
@@ -118,21 +48,19 @@ const renderGames = (items, rows_per_page, page) => {
     let start = rows_per_page * page;
     let end = start + rows_per_page;
     let paginated_items = items.slice(start, end);
-
     for (let i = 0; i < paginated_items.length; i++){
-        
         const tarjeta = document.createElement('div');
         tarjeta.id = "gameCard"
         tarjeta.innerHTML = `
-            <a href="#">
+            <a href="./pages/gameDetails.html?id=${i}">
             <img class="img-fluid" src="${paginated_items[i].url}">
             <h3 class="title">${paginated_items[i].title}</h3>
             <a>       
             `;
         contenedor.appendChild(tarjeta);
     }
-    
 }
+
 
 const modalRender1 = (() =>{
     juegos.slice(20, 26).forEach(juego =>{
@@ -192,13 +120,72 @@ function paginationButton (page, items) {
         let current_btn = document.querySelector('.pageNumbers button.active');
         current_btn.classList.remove('active');
         button.classList.add('active');
-        gameDetail(juegos);
-    })
-    
+        gameDetail();
+    });
     return button;
 }
 
+
+
+// const gameDetail = () => {
+//     const main = document.getElementById('main');
+//     const card = document.querySelectorAll("#gameCard").forEach((card) => {
+//         card.addEventListener('click', () => {
+//             console.log('2')
+//         main.innerHTML = ""
+//         main.innerHTML = `
+//         <main>
+//         <div id="main">
+        
+//       </div>
+      
+//       <!-- Portada-->
+//       <div class="col">
+//       <img src="/assets/img/gameDetails/portada.png" alt="Portada cyberpunk 2077">
+//       </div>
+      
+      
+//       <div class="row p-2">
+//           <div class="col-3 m-3" >
+//             <img class=" col-xl-12 col-md-12 col-sm-3 portada" src="/assets/img/gameDetails/caratula.png" alt="Caratula Cyberpunk 2077">
+//             <p class="text-white mt-3"> Cyberpunk 2077 es un RPG de aventura y acción de mundo abierto ambientado en el futuro 
+//               sombrío de Night City, una peligrosa megalópolis obsesionada con el poder, 
+//               el glamur y las incesantes modificaciones corporales.</p>
+//             <p class="text-white mt-3"> Reseñas generales: <span class="span"> Mayormente positivas (425,103)</span></p> 
+//             <p class="text-white mt-3"> Fecha de lanzamiento: 9 DIC 2020.</p>
+//             <p class="text-white mt-3"> Desarrollador: <span class="span">CD PROYECT RED</span> </p>
+//             <p class="text-white mt-3"> Editor: <span class="span">CD PROYECT RED</span> </p>
+//             <button class="btn span my-1 mx-1 boton">Cyberpubk</button>
+//             <button class="btn span my-1 mx-1 boton">Mundo abierto</button>
+//             <button class="btn span my-1 mx-1 boton">Rol</button>
+//             <button class="btn span my-1 mx-1 boton">FPS</button>
+//             <br>
+//             <hr>
+//             <button class="btn btn-primary fw-bold mx-2">Comprar</button>
+//             <button class="btn btn-primary fw-bold mx-2">Añadir al carrito</button>
+//           </div>
+//           <div class="col-5 col-md-8 col-sm-4">
+//               <iframe width="720" height="360" 
+//               src="https://www.youtube.com/embed/Q_v3ttvCVfA" 
+//               title="YouTube video player" frameborder="0" 
+//             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
+//             picture-in-picture" allowfullscreen></iframe>
+//             </div>
+//             </div>
+//             </main>
+//             `;
+          
+//         });
+//     });
+//     }
+
 renderGames(juegos, rows, current_page);
-setupPagination (juegos, rows);
+setupPagination(juegos, rows);
+
+
+
+
+
+
 
 
